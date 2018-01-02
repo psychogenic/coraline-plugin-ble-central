@@ -119,28 +119,6 @@ void BLEPlugin::update()
 void BLEPlugin::shutdown() {
 	Gattlib::BLECentral::getInstance()->shutdown();
 }
-/*
-Coraline::Plugin::ClientCode BLEPlugin::clientSideSupport() {
-    return Coraline::Plugin::ClientCode(
-                "var Device =  (function() {"
-                 "   function Device() {"
-                 "   }"
-                 "   "
-                 "  Device.prototype.getInfo = function(win,fail,args) {"
-                 "       cordova.exec(function (asArray) {"
-                 "           win({model: asArray[0], cordova: asArray[1],"
-                 "                platform: asArray[2], uuid: asArray[3], version: asArray[4], manufacturer: asArray[5]});"
-                 "      }, null, \"com.cordova.device\", \"getInfo\", []);"
-                 "   };"
-                 "   return Device;"
-                "}());");
-
-
-
-}
-*/
-
-
 Coraline::Version BLEPlugin::version() {
 
     return Coraline::Version(MYPLUGIN_VERSION_MAJOR,
@@ -151,38 +129,6 @@ Coraline::Version BLEPlugin::version() {
 
 
 
-/*
-void BLEPlugin::cbbTrigger(int cbId, QString val) {
-    std::string utf8_text = val.toUtf8().constData();
-
-    qDebug() << "cbbTrigger: " << val;
-    json ho;
-    try {
-     ho = json::parse(utf8_text);
-    } catch (std::invalid_argument&) {
-        qDebug() << "bad json stuffs?? " << val;
-        ho = json::parse("{\"parseError\":true}");
-    }
-
-    triggerCallback(cbId, ho);
-
-}
-
-void BLEPlugin::cbbTriggerNoRemove(int cbId, QString val) {
-    std::string utf8_text = val.toUtf8().constData();
-
-     qDebug() << "cbbTriggerNoRemove: " << val;
-    json ho;
-    try {
-     ho = json::parse(utf8_text);
-    } catch (std::invalid_argument&) {
-        qDebug() << "bad json stuffs?? " << val;
-    }
-
-    triggerCallbackNoRemove(cbId, ho);
-
-}
-*/
 void BLEPlugin::registerAllMethods() {
     PLUGINREGMETH(scan);
     PLUGINREGMETH(startScan);
